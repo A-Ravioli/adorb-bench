@@ -17,6 +17,8 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [voted, setVoted] = useState(false);
   const [refreshLeaderboard, setRefreshLeaderboard] = useState(0);
+  const [showUwuLeft, setShowUwuLeft] = useState(false);
+  const [showUwuRight, setShowUwuRight] = useState(false);
 
   // Initialize rankings on mount
   useState(() => {
@@ -77,20 +79,46 @@ export default function Home() {
     setRefreshLeaderboard(prev => prev + 1);
   };
 
+  const handleImageClick = (side: 'left' | 'right') => {
+    if (side === 'left') {
+      setShowUwuLeft(true);
+      setTimeout(() => setShowUwuLeft(false), 1000);
+    } else {
+      setShowUwuRight(true);
+      setTimeout(() => setShowUwuRight(false), 1000);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white py-16 px-4 relative">
       <div className="max-w-4xl mx-auto">
         {/* Header with Images */}
         <div className="text-center mb-16 relative">
           <div className="flex items-center justify-center gap-8">
-            <div className="w-12 h-12 flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity">
+            <div 
+              className="w-12 h-12 flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity cursor-pointer relative"
+              onClick={() => handleImageClick('left')}
+            >
               <Image src="/images/kuromi.png" alt="" width={48} height={48} className="object-contain" />
+              {showUwuLeft && (
+                <span className="absolute top-0 left-1/2 -translate-x-1/2 text-pink-400 text-xs font-bold animate-float-fade pointer-events-none">
+                  uwu
+                </span>
+              )}
             </div>
             <h1 className="text-5xl font-serif text-gray-900">
               adorb bench
             </h1>
-            <div className="w-12 h-12 flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity">
+            <div 
+              className="w-12 h-12 flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity cursor-pointer relative"
+              onClick={() => handleImageClick('right')}
+            >
               <Image src="/images/labubu.png" alt="" width={48} height={48} className="object-contain" />
+              {showUwuRight && (
+                <span className="absolute top-0 left-1/2 -translate-x-1/2 text-pink-400 text-xs font-bold animate-float-fade pointer-events-none">
+                  uwu
+                </span>
+              )}
             </div>
           </div>
         </div>
