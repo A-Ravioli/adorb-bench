@@ -34,7 +34,7 @@ export default function CreatureCard({ creature, modelId, loading, onVote, disab
                 <p className="text-xs">{creature.error}</p>
               </div>
             ) : (
-              <div className="text-6xl mb-4 select-all font-mono leading-relaxed">
+              <div className="text-6xl mb-4 select-all font-mono leading-tight whitespace-nowrap overflow-hidden text-ellipsis px-2">
                 {creature.creature}
               </div>
             )}
@@ -50,9 +50,9 @@ export default function CreatureCard({ creature, modelId, loading, onVote, disab
         <button
           onClick={onVote}
           disabled={disabled}
-          className="mt-6 px-6 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+          className="mt-6 px-6 py-2 text-sm border border-gray-300 dark:border-gray-700 rounded-lg text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:border-gray-400 dark:hover:border-gray-600 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
         >
-          Vote
+          type shit
         </button>
       )}
     </div>
