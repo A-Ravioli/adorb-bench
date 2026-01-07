@@ -5,7 +5,6 @@ import Image from 'next/image';
 import CreatureCard from './components/CreatureCard';
 import ModelSelector from './components/ModelSelector';
 import Leaderboard from './components/Leaderboard';
-import DarkModeToggle from './components/DarkModeToggle';
 import { GeneratedCreature } from './types';
 import { DEFAULT_MODEL_1, DEFAULT_MODEL_2 } from './constants';
 import { saveVote, initializeRankings } from './utils/rankings';
@@ -79,10 +78,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 py-16 px-4 relative">
-      {/* Dark Mode Toggle */}
-      <DarkModeToggle />
-
+    <div className="min-h-screen bg-white py-16 px-4 relative">
       <div className="max-w-4xl mx-auto">
         {/* Header with Images */}
         <div className="text-center mb-16 relative">
@@ -90,7 +86,7 @@ export default function Home() {
             <div className="w-12 h-12 flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity">
               <Image src="/images/kuromi.png" alt="" width={48} height={48} className="object-contain" />
             </div>
-            <h1 className="text-5xl font-serif text-gray-900 dark:text-gray-100">
+            <h1 className="text-5xl font-serif text-gray-900">
               adorb bench
             </h1>
             <div className="w-12 h-12 flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity">
@@ -128,7 +124,7 @@ export default function Home() {
 
         {model1 === model2 && (
           <div className="text-center mb-8">
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-500">
               Select two different models
             </p>
           </div>
@@ -154,12 +150,12 @@ export default function Home() {
 
         {voted && (
           <div className="text-center mb-16">
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+            <p className="text-sm text-gray-600 mb-4">
               Vote recorded
             </p>
             <button
               onClick={handleGenerate}
-              className="px-6 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+              className="px-6 py-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
             >
               Generate another
             </button>

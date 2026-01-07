@@ -15,9 +15,9 @@ export default function CreatureCard({ creature, modelId, loading, onVote, disab
   const modelName = AVAILABLE_MODELS.find(m => m.id === modelId)?.name || modelId;
 
   return (
-    <div className="border border-gray-200 dark:border-gray-800 rounded p-6 flex flex-col items-center justify-between min-h-[300px]">
+    <div className="border border-gray-200 rounded p-6 flex flex-col items-center justify-between min-h-[300px]">
       <div className="text-center mb-6">
-        <h3 className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+        <h3 className="text-xs text-gray-500 uppercase tracking-wide">
           {modelName}
         </h3>
       </div>
@@ -30,7 +30,7 @@ export default function CreatureCard({ creature, modelId, loading, onVote, disab
         ) : creature ? (
           <div className="text-center">
             {creature.error ? (
-              <div className="text-red-500 dark:text-red-400">
+              <div className="text-red-500">
                 <p className="text-xs">{creature.error}</p>
               </div>
             ) : (
@@ -40,7 +40,7 @@ export default function CreatureCard({ creature, modelId, loading, onVote, disab
             )}
           </div>
         ) : (
-          <div className="text-gray-300 dark:text-gray-700 text-center">
+          <div className="text-gray-300 text-center">
             <p className="text-4xl">?</p>
           </div>
         )}
@@ -50,7 +50,7 @@ export default function CreatureCard({ creature, modelId, loading, onVote, disab
         <button
           onClick={onVote}
           disabled={disabled}
-          className="mt-6 px-6 py-2 text-sm border border-gray-300 dark:border-gray-700 rounded-lg text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:border-gray-400 dark:hover:border-gray-600 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+          className="mt-6 px-6 py-2 text-sm border border-gray-300 rounded-lg text-gray-600 hover:text-gray-900 hover:border-gray-400 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
         >
           type shit
         </button>
